@@ -1,0 +1,16 @@
+{
+  "name": "relational-orm",
+  "keywords": [ "orm", "relational", "associations", "has-many", "has-one", "belongs-to", "restangular" ],
+  "version": "0.0.0",
+  "authors": [ "Ruben Swieringa", "Steven van der Vegt" ],
+  "homepage": "http://www.github.com/nedap/restangular-orm",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nedap/restangular-orm.git"
+  },
+  "main": "dist/restangular-orm.js",
+  "dependencies": {
+    "relational-model": "https://github.com/nedap/relational-model.git",
+    "restangular": "https://github.com/mgonto/restangular.git"
+  }
+}

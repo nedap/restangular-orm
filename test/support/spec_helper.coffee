@@ -1,10 +1,4 @@
 
-# beforeEach module 'RestangularORM'
-
-# beforeEach inject ( $injector, _$httpBackend_ ) ->
-#   @factory = $injector.get
-#   @http = _$httpBackend_
-
 beforeEach ->
   @isArray = Array.isArray || ( value ) -> return {}.toString.call( value ) is '[object Array]'
   @inspect = ( obj, recursive=true, newlines=true ) =>

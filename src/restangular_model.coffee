@@ -1,6 +1,6 @@
 
-angular.module 'RestangularORM', []
-.factory 'RestangularModel', [ 'Restangular', ( RestangularModel ) ->
+angular.module 'RestangularORM', [ 'restangular' ]
+.factory 'RestangularModel', [ 'Restangular', ( Restangular ) ->
 
   class RestangularModel extends RelationalModel
     constructor: ->
@@ -11,7 +11,7 @@ angular.module 'RestangularORM', []
       super name[ 0 ]
 
     @find: ( id ) ->
-      # console?.log "#{Restangular}"
+      Restangular.one( @restangularURL, id ).get()
 
     @hasMany: ->
       super

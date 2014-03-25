@@ -1,17 +1,28 @@
 
 angular.module 'RestangularORM', [ 'restangular' ]
-.factory 'RestangularModel', [ 'Restangular', ( Restangular ) ->
+.value 'relationalNotifications', new Bacon.Bus
+.factory 'RestangularModel', [ 'Restangular', 'relationalNotifications', ( Restangular, stream ) ->
 
   class RestangularModel extends RelationalModel
-    constructor: ->
+    constructor: ( data ) ->
       super
 
     @initialize: ( name..., options ) ->
       @restangularURL = options.url
+
+      Restangular.addElementTransformer options.url, false, (data) =>
+        if options.factory && @hasOwnProperty( options.factory ) && typeof(@[ options.factory ]) == 'function'
+          @[ options.factory ]( data, stream )
+        else
+          new this( data, stream )
+
       super name[ 0 ]
 
     @find: ( id ) ->
       Restangular.one( @restangularURL, id ).get()
+
+    @all: ->
+      Restangular.all( @restangularURL ).getList()
 
     @hasMany: ->
       super

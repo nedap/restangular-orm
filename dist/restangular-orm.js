@@ -19,9 +19,9 @@ angular.module('RestangularORM', ['restangular']).value('relationalNotifications
         Restangular.addElementTransformer(options.url, false, (function(_this) {
           return function(data) {
             if (options.factory && _this.hasOwnProperty(options.factory) && typeof _this[options.factory] === 'function') {
-              return _this[options.factory](data, stream);
+              return _this[options.factory](data, _this, stream);
             } else {
-              return new _this(data, stream);
+              return new _this(data, _this, stream);
             }
           };
         })(this));

@@ -12,9 +12,9 @@ angular.module 'RestangularORM', [ 'restangular' ]
 
       Restangular.addElementTransformer options.url, false, (data) =>
         if options.factory && @hasOwnProperty( options.factory ) && typeof(@[ options.factory ]) == 'function'
-          @[ options.factory ]( data, stream )
+          @[ options.factory ]( data, this, stream )
         else
-          new this( data, stream )
+          new this( data, this, stream )
 
       super name[ 0 ]
 

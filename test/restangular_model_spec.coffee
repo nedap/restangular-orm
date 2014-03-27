@@ -16,8 +16,8 @@ describe 'RestangularModel', ->
     class @Organism extends @RestangularModel
     class @Person extends @Organism
       @initialize url: 'people'
-      constructor: ( data, stream ) ->
-        super Person, stream, data
+      constructor: ( data, klass, stream ) ->
+        super data, Person, stream
 
 
   it "sets restangularURL on a class-level", ->

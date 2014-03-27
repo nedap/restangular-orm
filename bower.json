@@ -1,5 +1,5 @@
 {
-  "name": "relational-orm",
+  "name": "restangular-orm",
   "keywords": [ "orm", "relational", "associations", "has-many", "has-one", "belongs-to", "restangular" ],
   "version": "0.2.0",
   "authors": [ "Ruben Swieringa", "Steven van der Vegt" ],

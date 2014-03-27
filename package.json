@@ -1,5 +1,5 @@
 {
-  "name": "relational-orm",
+  "name": "restangular-orm",
   "version": "0.2.0",
   "devDependencies": {
     "grunt": "~0.4.2",

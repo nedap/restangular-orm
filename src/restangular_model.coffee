@@ -1,7 +1,14 @@
 
 angular.module 'RestangularORM', [ 'restangular' ]
-.value 'relationalNotifications', new Bacon.Bus
-.factory 'RestangularModel', [ 'Restangular', 'relationalNotifications', ( Restangular, stream ) ->
+.provider 'notificationStream', [()->
+  @stream = new Bacon.Bus
+  @$get = ()=>
+    @stream
+  @setStream = (newStream) =>
+    @stream = newStream
+  null
+]
+.factory 'RestangularModel', [ 'Restangular', 'notificationStream', ( Restangular, stream ) ->
 
   class RestangularModel extends RelationalModel
     constructor: ( data ) ->

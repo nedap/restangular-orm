@@ -2,8 +2,23 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   __slice = [].slice;
 
-angular.module('RestangularORM', ['restangular']).value('relationalNotifications', new Bacon.Bus).factory('RestangularModel', [
-  'Restangular', 'relationalNotifications', function(Restangular, stream) {
+angular.module('RestangularORM', ['restangular']).provider('notificationStream', [
+  function() {
+    this.stream = new Bacon.Bus;
+    this.$get = (function(_this) {
+      return function() {
+        return _this.stream;
+      };
+    })(this);
+    this.setStream = (function(_this) {
+      return function(newStream) {
+        return _this.stream = newStream;
+      };
+    })(this);
+    return null;
+  }
+]).factory('RestangularModel', [
+  'Restangular', 'notificationStream', function(Restangular, stream) {
     var RestangularModel;
     return RestangularModel = (function(_super) {
       __extends(RestangularModel, _super);

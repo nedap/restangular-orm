@@ -1,7 +1,7 @@
 {
   "name": "restangular-orm",
   "keywords": [ "orm", "relational", "associations", "has-many", "has-one", "belongs-to", "restangular" ],
-  "version": "0.2.2",
+  "version": "0.2.3",
   "authors": [ "Ruben Swieringa", "Steven van der Vegt" ],
   "homepage": "http://www.github.com/nedap/restangular-orm",
   "repository": {

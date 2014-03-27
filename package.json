@@ -1,6 +1,6 @@
 {
   "name": "restangular-orm",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-coffee": "~0.10.1",

@@ -51,3 +51,10 @@ describe 'RestangularModel', ->
     @Person.all().then ( data ) =>
       expect( data[0] instanceof @Person ).toEqual true
     @http.flush()
+
+  it "generates names for fetch-methods", ->
+    expect( @RestangularModel.getMethodName 'people' ).toEqual 'fetchPeople'
+    expect( @RestangularModel.getMethodName 'nailHammer' ).toEqual 'fetchNailHammer'
+
+  it "creates fetch-methods", ->
+    pending()

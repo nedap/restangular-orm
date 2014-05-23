@@ -44,5 +44,5 @@ angular.module 'RestangularORM', [ 'restangular' ]
     # RelationalModel.belongsTo() calls .hasOne(), so we don't need an alias for that
 
     @getMethodName: ( property ) ->
-      "get#{ property.slice(0,1).toUpperCase() }#{ property.slice(1) }"
+      "fetch#{ property.slice(0,1).toUpperCase() }#{ property.slice(1) }"
 ]
